@@ -4,15 +4,41 @@
 */
 
 // instance array of strings
-const stringArr = ["Fionn", "Paul", "Mark", "Joseph"];
+let tasks = ["Fionn", "Paul", "Mark", "Joseph"];
 
-function addTask(task) {
+let addTask = (task) => {
+
     // push task onto array
-    stringArr.push(task);
+    console.log("Size: " + tasks.push(task));
 
-    // print out array
-    console.log(task + " added to string arr.");
-    console.log("New array: " + stringArr);
+    // confirmation
+    console.log(task + " added to string tasks.");
 }
 
+let listAllTasks = () => {
+    // print out array
+    console.log("New array: " + tasks + "\n");
+}
+
+let deleteTask = (task) => {
+    // if task is not in array
+    if (tasks.indexOf(task) == -1) {
+        console.log("Task " + task + " not in list!");
+    }
+    // task is in array
+    else {
+        // delete task at task index
+        tasks.splice(tasks.indexOf(task), 1);
+        console.log(task + " removed from list");
+    }
+
+    // print array size
+    console.log("Array size: " + tasks.length + "\n");
+}
+
+// invoke functions
 addTask("Pauleen");
+listAllTasks();
+deleteTask("Fionn");
+listAllTasks();
+deleteTask("Jimmy");
